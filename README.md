@@ -62,32 +62,6 @@
 
 所有功能均不包含账号或付费权限要求。线路目前按节点间直线插值，不自动沿道路规划；分段之间瞬间切换，循环到终点后回到起点重新播放。GPX 时间戳用于保存与导出，播放使用设定速度。
 
-## 地图配置
-
-标准包名为 `com.chuansuo.app`。正式 APK 构建时通过本地配置注入百度地图 Android SDK Key，安装后可直接使用地图功能。开发版可在“设置 → 开发者工具”替换 Key，退出后重新打开应用生效。
-
-地图授权需与 APK 的包名和签名匹配。系统模拟定位需要在 Android 开发者选项中选择穿梭为模拟位置信息应用。
-
-搜索优先城市依次取用户设置、定位城市、北京，并允许跨城返回结果。主地图与悬浮地图共用输入防抖、旧结果过滤、建议词转 POI 与错误提示；线路编辑器也复用同一检索服务。
-
-地图 SDK 联网与系统位置注入需要有效 Key 和 ARM64 真机验证，编译通过不代表已完成这些外部配置。官方参考：[输入提示](https://lbsyun.baidu.com/docs/android?title=androidsdk%2Fguide%2Fsearch%2Fsuggestion)、[Key 与签名](https://lbsyun.baidu.com/docs/guide?title=android-guide%2Fcreate-project%2Fak)。
-
-## 构建与测试
-
-使用 JDK 17、Android SDK Platform 32、Build Tools 36.0.0、Gradle Wrapper 8.13；原生库已预编译，无需 NDK。复制 `local.properties.example` 为 `local.properties`，填写本机 SDK 路径。
-
-```powershell
-.\gradlew.bat testDebugUnitTest
-.\gradlew.bat assembleDebug assembleRelease lintDebug lintRelease
-```
-
-- `assembleDebug` 输出标准开发版，版本名带 `-dev`，包含地图 Key 编辑与诊断日志工具。
-- `assembleRelease` 输出标准正式版，地图 Key 由构建注入。签名后才可安装，GitHub Releases 只发布这一个正式 APK。
-
-APK 位于 `app/build/outputs/apk/debug/` 或 `app/build/outputs/apk/release/`。通过 Git 忽略的 `local.properties` 设置 `MAPS_API_KEY`。公开 CI 在空 Key 配置下测试源码。手动运行 Build Release 工作流时，使用仓库 Secrets 提供地图 Key 和发布签名。
-
-自动测试覆盖线路时钟/暂停/变速/分段、GPX 往返与错误输入、SQLite 事务/排序/外键、编辑器交互与草稿恢复。Robolectric 仅作为测试依赖，不增加应用运行时地图 SDK。
-
 ## 免责说明
 
 穿梭面向 Android 开发学习、位置模拟测试和功能演示。请在获得授权的设备和场景中使用，遵守适用法律法规及相关第三方服务的使用规则，尊重他人的隐私和合法权益。
