@@ -2,7 +2,7 @@ name: Build Check
 on:
   workflow_dispatch:
   push:
-    branches: [main, codex/develop]
+    branches: [main, liu/develop]
   pull_request:
     branches: [main]
 permissions:
