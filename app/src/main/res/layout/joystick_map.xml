@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="480dp"
+    android:background="@drawable/joystick_pane"
+    android:clipToOutline="true">
+
+    <TextView
+        android:id="@+id/joystick_map_tips"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginEnd="90dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingStart="14dp"
+        android:text="@string/joystick_map_tips"
+        android:textColor="@color/ui_ink"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <SearchView
+        android:id="@+id/joystick_map_searchView"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginEnd="48dp"
+        android:gravity="end|center_vertical"
+        android:iconifiedByDefault="true"
+        android:queryHint="@string/app_search_tips" />
+
+    <ImageButton
+        android:id="@+id/map_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/map_secondary_action"
+        android:contentDescription="@string/map_close"
+        android:padding="9dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_close" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="48dp">
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/map_joystick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/map_secondary_action"
+            android:contentDescription="@string/cur_position"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_home_position" />
+
+        <ImageButton
+            android:id="@+id/btnGo"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/map_secondary_action"
+            android:contentDescription="@string/map_use_point"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_fly" />
+
+        <LinearLayout
+            android:id="@+id/map_search_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/ui_surface"
+            android:orientation="vertical"
+            android:paddingHorizontal="8dp"
+            android:visibility="gone">
+
+            <ListView
+                android:id="@+id/map_search_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/ui_line"
+                android:dividerHeight="1dp"
+                android:listSelector="@drawable/map_row_background" />
+
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

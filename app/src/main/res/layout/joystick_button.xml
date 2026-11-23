@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/joystick_round_pad"
+    android:orientation="vertical"
+    android:padding="3dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_north_west"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/map_row_background"
+            android:contentDescription="@string/joystick_northwest"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_left_up" />
+
+        <ImageButton
+            android:id="@+id/btn_north"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/map_row_background"
+            android:contentDescription="@string/joystick_north"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_up" />
+
+        <ImageButton
+            android:id="@+id/btn_north_east"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/map_row_background"
+            android:contentDescription="@string/joystick_northeast"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_right_up" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_west"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/map_row_background"
+            android:contentDescription="@string/joystick_west"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_left" />
+
+        <ImageButton
+            android:id="@+id/btn_center"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/map_row_background"
+            android:contentDescription="@string/joystick_lock"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_lock_close" />
+
+        <ImageButton
+            android:id="@+id/btn_east"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/map_row_background"
+            android:contentDescription="@string/joystick_east"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_south_west"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/map_row_background"
+            android:contentDescription="@string/joystick_southwest"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_left_down" />
+
+        <ImageButton
+            android:id="@+id/btn_south"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/map_row_background"
+            android:contentDescription="@string/joystick_south"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_down" />
+
+        <ImageButton
+            android:id="@+id/btn_south_east"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/map_row_background"
+            android:contentDescription="@string/joystick_southeast"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_right_down" />
+    </LinearLayout>
+
+</LinearLayout>

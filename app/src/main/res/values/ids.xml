@@ -1,0 +1,9 @@
+<resources>
+    <item name="route_name" type="id" />
+    <item name="route_speed" type="id" />
+    <item name="route_add_point" type="id" />
+    <item name="route_points" type="id" />
+    <item name="route_save" type="id" />
+    <item name="point_longitude" type="id" />
+    <item name="point_latitude" type="id" />
+</resources>

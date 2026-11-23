@@ -1,0 +1,37 @@
+name: Build Check
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, codex/develop]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: temurin
+          cache: gradle
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
+      - name: Install SDK
+        run: sdkmanager "platforms;android-32" "build-tools;36.0.0"
+      - name: Test, build and lint
+        run: ./gradlew testDebugUnitTest assembleDebug assembleRelease lintDebug lintRelease --console=plain
+      - name: Verify packaged app identities and signatures
+        run: python tools/verify_apks.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ChuanSuo-debug-and-reports
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/reports/
+            build/reports/apk-validation.json

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ui_canvas">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:collapseIcon="@drawable/ic_back"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="@color/ui_ink" />
+
+        <TextView
+            android:id="@+id/map_search_trigger"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/map_secondary_action"
+            android:clickable="true"
+            android:drawablePadding="12dp"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:text="@string/map_search_here"
+            android:textColor="@color/ui_muted"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_search"
+            app:drawableTint="@color/ui_muted" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <include
+                android:id="@+id/map_body"
+                layout="@layout/map_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/search_linear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/ui_canvas"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="12dp"
+                    android:text="@string/map_search_results"
+                    android:textColor="@color/ui_ink"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ListView
+                    android:id="@+id/search_list_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:divider="@color/ui_line"
+                    android:dividerHeight="1dp"
+                    android:listSelector="@drawable/map_row_background" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/search_history_linear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/ui_canvas"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="12dp"
+                    android:text="@string/map_search_history"
+                    android:textColor="@color/ui_ink"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ListView
+                    android:id="@+id/search_history_list_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:divider="@color/ui_line"
+                    android:dividerHeight="1dp"
+                    android:listSelector="@drawable/map_row_background" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/map_search_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="64dp"
+                android:textColor="@color/ui_muted"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+        </FrameLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

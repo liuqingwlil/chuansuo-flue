@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/map_panel"
+    android:elevation="2dp"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingBottom="12dp">
+
+    <View
+        android:layout_width="38dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/map_handle" />
+
+    <TextView
+        android:id="@+id/map_state_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/map_badge"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:text="@string/map_choose_place"
+        android:textColor="@color/ui_ink"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/map_simulation_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@string/map_pick_instruction"
+        android:textColor="@color/ui_muted"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/map_simulation_coordinates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/ui_ink"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/map_route_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:contentDescription="@string/map_route_progress_description"
+        android:max="100"
+        android:progressBackgroundTint="@color/ui_soft"
+        android:progressTint="@color/colorPrimary"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/map_point_detail"
+        layout="@layout/location_poi_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/faBtnStart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/map_primary_action"
+            android:backgroundTint="@null"
+            android:minHeight="48dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="10dp"
+            android:text="@string/map_start_simulation"
+            android:textAllCaps="false"
+            android:textColor="@color/ui_on_primary"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/input_pos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/map_secondary_action"
+            android:backgroundTint="@null"
+            android:minHeight="48dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="10dp"
+            android:text="@string/map_input_short"
+            android:textAllCaps="false"
+            android:textColor="@color/ui_ink"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/map_joystick_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/map_secondary_action"
+            android:backgroundTint="@null"
+            android:minHeight="48dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="10dp"
+            android:text="@string/map_joystick"
+            android:textAllCaps="false"
+            android:textColor="@color/ui_ink"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/map_pause_route"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/map_secondary_action"
+            android:backgroundTint="@null"
+            android:minHeight="48dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="10dp"
+            android:text="@string/map_pause"
+            android:textAllCaps="false"
+            android:textColor="@color/ui_ink"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</LinearLayout>

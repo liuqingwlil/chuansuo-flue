@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ui_soft">
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bdMapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="14dp"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/cur_position"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/map_secondary_action"
+            android:contentDescription="@string/cur_position"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_home_position"
+            app:tint="@color/ui_ink" />
+
+        <ImageButton
+            android:id="@+id/zoom_in"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/map_secondary_action"
+            android:contentDescription="@string/zoom_in"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_zoom_in"
+            app:tint="@color/ui_ink" />
+
+        <ImageButton
+            android:id="@+id/zoom_out"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/map_secondary_action"
+            android:contentDescription="@string/zoom_out"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_zoom_out"
+            app:tint="@color/ui_ink" />
+
+        <ImageButton
+            android:id="@+id/map_layers"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/map_secondary_action"
+            android:contentDescription="@string/map_display_layers"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_layers"
+            app:tint="@color/ui_ink" />
+    </LinearLayout>
+</FrameLayout>

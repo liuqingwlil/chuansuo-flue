@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_map" android:checked="true" android:icon="@drawable/ic_map" android:title="@string/map_title" />
+    </group>
+    <group>
+        <item android:id="@+id/nav_library" android:icon="@drawable/ic_save" android:title="@string/map_nav_library" />
+        <item android:id="@+id/nav_route" android:icon="@drawable/ic_route" android:title="@string/map_nav_route" />
+        <item android:id="@+id/nav_history" android:icon="@drawable/ic_menu_history" android:title="@string/nav_menu_history" />
+        <item android:id="@+id/nav_settings" android:icon="@drawable/ic_menu_settings" android:title="@string/nav_menu_settings" />
+    </group>
+    <group>
+        <item android:id="@+id/nav_dev" android:icon="@drawable/ic_menu_dev" android:title="@string/nav_menu_dev" />
+        <item android:id="@+id/nav_update" android:icon="@drawable/ic_menu_upgrade" android:title="@string/nav_menu_upgrade" />
+        <item android:id="@+id/nav_feedback" android:icon="@drawable/ic_menu_feedback" android:title="@string/nav_menu_feedback" />
+        <item android:id="@+id/nav_contact" android:icon="@drawable/ic_contact" android:title="@string/nav_menu_contact" />
+        <item android:id="@+id/nav_project_home" android:icon="@drawable/ic_project" android:title="@string/map_nav_project" />
+    </group>
+</menu>

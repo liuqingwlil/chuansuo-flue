@@ -1,0 +1,4 @@
+<resources>
+    <string name="setting_group_developer">开发者工具</string>
+    <string name="setting_log_restart">重启应用后生效</string>
+</resources>

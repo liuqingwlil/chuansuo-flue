@@ -1,0 +1,61 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorOnPrimary">@color/ui_on_primary</item>
+        <item name="colorOnSecondary">@color/ui_on_primary</item>
+        <item name="colorSurface">@color/ui_surface</item>
+        <item name="colorOnSurface">@color/ui_ink</item>
+        <item name="colorControlHighlight">@color/ui_ripple</item>
+        <item name="buttonStyle">@style/AppTheme.Button</item>
+        <item name="actionBarStyle">@style/AppTheme.ActionBar</item>
+        <item name="android:windowBackground">@color/ui_canvas</item>
+        <item name="android:statusBarColor">@color/ui_canvas</item>
+        <item name="android:navigationBarColor">@color/ui_canvas</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.ActionBar" parent="Widget.MaterialComponents.ActionBar.Primary">
+        <item name="background">@color/ui_surface</item>
+        <item name="titleTextStyle">@style/AppTheme.ActionBar.Title</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.Title" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/ui_ink</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorControlNormal">@color/ui_ink</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="RippleWhite" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorControlHighlight">@color/ui_ripple</item>
+        <item name="colorControlHighlight">@color/ui_ripple</item>
+    </style>
+
+    <!-- dialog动画 -->
+    <style name="DialogAnimFadeInFadeOut" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_fade_out</item>
+    </style>
+
+    <!-- https://stackoverflow.com/questions/26346727/android-material-design-button-styles-->
+    <!-- Button -->
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+
+</resources>

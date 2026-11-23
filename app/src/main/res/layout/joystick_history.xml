@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="450dp"
+    android:background="@drawable/joystick_pane"
+    android:clipToOutline="true">
+
+    <TextView
+        android:id="@+id/joystick_his_tips"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginEnd="90dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingStart="14dp"
+        android:text="@string/joystick_history_tips"
+        android:textColor="@color/ui_ink"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <SearchView
+        android:id="@+id/joystick_his_searchView"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginEnd="48dp"
+        android:gravity="end|center_vertical"
+        android:iconifiedByDefault="true"
+        android:queryHint="@string/app_search_tips" />
+
+    <ImageButton
+        android:id="@+id/joystick_his_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/map_secondary_action"
+        android:contentDescription="@string/map_close"
+        android:padding="9dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_close" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="48dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp">
+
+        <TextView
+            android:id="@+id/joystick_his_record_no_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:text="@string/history_idle"
+            android:textColor="@color/ui_muted"
+            android:textSize="15sp" />
+
+        <ListView
+            android:id="@+id/joystick_his_record_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/ui_line"
+            android:dividerHeight="1dp"
+            android:listSelector="@drawable/map_row_background"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</FrameLayout>

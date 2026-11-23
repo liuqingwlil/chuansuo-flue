@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/joystick_bubble_size"
+    android:layout_height="@dimen/joystick_bubble_size"
+    android:background="@drawable/circle_shape_bg"
+    android:contentDescription="@string/joystick_expand"
+    android:padding="10dp"
+    android:scaleType="centerInside"
+    android:src="@drawable/ic_joystick" />

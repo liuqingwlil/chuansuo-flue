@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="joystick_control_title">摇杆控制</string>
+    <string name="joystick_expand">展开摇杆</string>
+    <string name="joystick_collapse">收起摇杆</string>
+    <string name="joystick_speed_title">移动速度</string>
+    <string name="joystick_ride">骑行</string>
+    <string name="joystick_northwest">向左上移动</string>
+    <string name="joystick_north">向上移动</string>
+    <string name="joystick_northeast">向右上移动</string>
+    <string name="joystick_west">向左移动</string>
+    <string name="joystick_east">向右移动</string>
+    <string name="joystick_southwest">向左下移动</string>
+    <string name="joystick_south">向下移动</string>
+    <string name="joystick_southeast">向右下移动</string>
+    <string name="joystick_lock">切换持续移动</string>
+</resources>

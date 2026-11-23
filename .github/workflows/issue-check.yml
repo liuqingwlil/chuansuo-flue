@@ -1,0 +1,32 @@
+name: Issue Check
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  issue-close-require:
+    permissions:
+      actions: write # Checkpoint progress between scheduled runs.
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check inactive issues
+        uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
+        with:
+          days-before-issue-stale: 15
+          days-before-issue-close: 7
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+          remove-pr-stale-when-updated: false
+          stale-issue-label: inactive
+          debug-only: ${{ github.event_name == 'workflow_dispatch' }}
+          stale-issue-message: |
+            The issue has not received any updates for 15 consecutive days. Please follow the progress of this issue in time.
+
+            该 issue 已经连续 15 天未收到任何更新。请及时关注该 ISSUE 进展。
+          close-issue-message: |
+            Since the issue do not response in 7 days after be added inactive tag. This issue will be closed. If you have any questions, you can comment and reply.
+
+            由于该 issue 在被标记为 inactive 后 7 天仍未收到回应。现关闭 issue，若有任何问题，可评论回复。

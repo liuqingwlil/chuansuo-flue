@@ -1,0 +1,9 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="#26FFFFFF">
+    <item>
+        <selector>
+            <item android:state_enabled="false" android:drawable="@drawable/map_badge" />
+            <item android:state_focused="true" android:drawable="@drawable/map_primary_focused" />
+            <item android:drawable="@drawable/map_primary_normal" />
+        </selector>
+    </item>
+</ripple>

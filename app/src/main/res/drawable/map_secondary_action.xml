@@ -1,0 +1,8 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="#17286659">
+    <item>
+        <selector>
+            <item android:state_focused="true" android:drawable="@drawable/map_focused_surface" />
+            <item android:drawable="@drawable/map_field" />
+        </selector>
+    </item>
+</ripple>

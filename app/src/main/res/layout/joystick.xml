@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/joystick_pane"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/joystick_drag"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/joystick_control_title"
+            android:textColor="@color/ui_ink"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/joystick_history"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/map_secondary_action"
+            android:contentDescription="@string/joystick_history"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_history" />
+
+        <ImageButton
+            android:id="@+id/joystick_position"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/map_secondary_action"
+            android:contentDescription="@string/joystick_map"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_map" />
+
+        <ImageButton
+            android:id="@+id/joystick_collapse"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/map_secondary_action"
+            android:contentDescription="@string/joystick_collapse"
+            android:padding="9dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_down" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="136dp"
+            android:layout_height="136dp">
+
+            <com.chuansuo.joystick.ButtonView
+                android:id="@+id/joystick_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <com.chuansuo.joystick.RockerView
+                android:id="@+id/joystick_rocker"
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:contentDescription="@string/joystick_move" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/joystick_speed_title"
+                android:textColor="@color/ui_muted"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/joystick_walk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/joystick_speed_background"
+                android:backgroundTint="@null"
+                android:minHeight="36dp"
+                android:paddingHorizontal="10dp"
+                android:text="@string/joystick_walk"
+                android:textAllCaps="false"
+                android:textColor="@color/ui_ink"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/joystick_run"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/joystick_speed_background"
+                android:backgroundTint="@null"
+                android:minHeight="36dp"
+                android:paddingHorizontal="10dp"
+                android:text="@string/joystick_run"
+                android:textAllCaps="false"
+                android:textColor="@color/ui_ink"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/joystick_bike"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/joystick_speed_background"
+                android:backgroundTint="@null"
+                android:minHeight="36dp"
+                android:paddingHorizontal="10dp"
+                android:text="@string/joystick_ride"
+                android:textAllCaps="false"
+                android:textColor="@color/ui_ink"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

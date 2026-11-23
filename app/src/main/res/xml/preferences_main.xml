@@ -1,0 +1,123 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:iconSpaceReserved="false">
+
+    <PreferenceCategory app:title="@string/setting_group_map"
+        app:icon="@drawable/ic_map" app:layout="@layout/secondary_preference_section" app:iconSpaceReserved="false">
+        <EditTextPreference app:layout="@layout/secondary_preference_row" app:key="setting_search_city" app:title="@string/setting_search_city"
+            app:summary="@string/setting_search_city_summary" app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/setting_group_move"
+        app:icon="@drawable/ic_walk" app:layout="@layout/secondary_preference_section"
+        app:iconSpaceReserved="false">
+        <ListPreference app:layout="@layout/secondary_preference_row"
+            app:key="setting_joystick_type"
+            app:title="@string/setting_joystick_type"
+            app:entries="@array/array_joystick_type"
+            app:entryValues="@array/array_joystick_type_values"
+            app:dialogTitle="@string/setting_joystick_type"
+            app:defaultValue="0"
+            app:iconSpaceReserved="false">
+        </ListPreference>
+
+        <EditTextPreference app:layout="@layout/secondary_preference_row"
+            app:key="setting_walk"
+            app:title="@string/setting_walk"
+            app:defaultValue="@string/setting_walk_default"
+            app:summary="@string/setting_walk_default"
+            app:iconSpaceReserved="false"/>
+
+        <EditTextPreference app:layout="@layout/secondary_preference_row"
+            app:key="setting_run"
+            app:title="@string/setting_run"
+            app:defaultValue="@string/setting_run_default"
+            app:summary="@string/setting_run_default"
+            app:iconSpaceReserved="false"/>
+
+        <EditTextPreference app:layout="@layout/secondary_preference_row"
+            app:key="setting_bike"
+            app:title="@string/setting_bike"
+            app:defaultValue="@string/setting_bike_default"
+            app:summary="@string/setting_bike_default"
+            app:iconSpaceReserved="false"/>
+
+        <EditTextPreference app:layout="@layout/secondary_preference_row"
+            app:key="setting_altitude"
+            app:title="@string/setting_altitude"
+            app:defaultValue="@string/setting_altitude_default"
+            app:summary="@string/setting_altitude_default"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/setting_group_location_offset"
+        app:icon="@drawable/ic_position" app:layout="@layout/secondary_preference_section"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat app:layout="@layout/secondary_preference_row"
+            app:key="setting_random_offset"
+            app:title="@string/setting_random_offset"
+            app:summary="@string/setting_random_offset_summary"
+            app:defaultValue="false"
+            app:iconSpaceReserved="false"/>
+        <EditTextPreference app:layout="@layout/secondary_preference_row"
+            app:key="setting_lat_max_offset"
+            app:title="@string/setting_lat_max_offset"
+            app:defaultValue="@string/setting_random_offset_default"
+            app:summary="@string/setting_random_offset_default"
+            app:iconSpaceReserved="false"/>
+        <EditTextPreference app:layout="@layout/secondary_preference_row"
+            app:key="setting_lon_max_offset"
+            app:title="@string/setting_lon_max_offset"
+            app:defaultValue="@string/setting_random_offset_default"
+            app:summary="@string/setting_random_offset_default"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/setting_group_log"
+        app:icon="@drawable/ic_history" app:layout="@layout/secondary_preference_section"
+        app:iconSpaceReserved="false">
+
+        <EditTextPreference app:layout="@layout/secondary_preference_row"
+            app:key="setting_history_expiration"
+            app:title="@string/setting_history_expiration"
+            app:defaultValue="@string/history_expiration"
+            app:summary="@string/history_expiration"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/setting_group_about"
+        app:icon="@drawable/ic_project" app:layout="@layout/secondary_preference_section"
+        app:iconSpaceReserved="false">
+
+        <Preference app:layout="@layout/secondary_preference_row"
+            app:key="setting_project_name"
+            app:title="@string/setting_project_name"
+            app:summary="@string/project_display_name"
+            app:selectable="false"
+            app:iconSpaceReserved="false" />
+
+        <Preference app:layout="@layout/secondary_preference_row"
+            app:key="setting_version"
+            app:selectable="false"
+            app:title="@string/setting_version"
+            app:iconSpaceReserved="false"/>
+
+        <Preference app:layout="@layout/secondary_preference_row"
+            app:key="setting_author"
+            app:title="@string/setting_author"
+            app:summary="@string/app_author"
+            app:selectable="false"
+            app:iconSpaceReserved="false" />
+
+        <Preference app:layout="@layout/secondary_preference_row"
+            app:key="setting_project_url"
+            app:title="@string/setting_project_url"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+</PreferenceScreen>
