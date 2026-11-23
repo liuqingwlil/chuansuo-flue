@@ -27,7 +27,7 @@ jobs:
         run: ./gradlew testDebugUnitTest assembleDebug assembleRelease lintDebug lintRelease --console=plain
       - name: Verify packaged app identities and signatures
         run: python tools/verify_apks.py
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: ChuanSuo-debug-and-reports
