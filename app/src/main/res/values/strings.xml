@@ -147,12 +147,15 @@
     <string name="map_pic_normal">普通图</string>
 
     <!-- 更新 -->
-    <string name="update_title">新版本可用</string>
+    <string name="update_title">发现新版本</string>
     <string name="update_last">当前已是最新正式版</string>
     <string name="update_download">立即下载</string>
     <string name="update_ignore">忽略一次</string>
-    <string name="update_time">更新时间：</string>
-    <string name="update_commit">提交信息：</string>
+    <string name="update_time">发布时间</string>
+    <string name="update_commit">发布目标</string>
+    <string name="update_stars_signet">繁星</string>
+    <string name="update_notes">更新日志</string>
+    <string name="update_notes_empty">此版本暂无更新说明</string>
     <string name="setting_group_map">地图与搜索</string>
     <string name="setting_map_key">百度地图 Android SDK Key</string>
     <string name="setting_map_key_summary">使用与本应用包名、签名匹配的 Key；留空使用构建配置</string>

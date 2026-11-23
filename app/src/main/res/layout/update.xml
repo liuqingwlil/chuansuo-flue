@@ -1,102 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:background="@drawable/update_dialog_surface"
+    android:clipToOutline="true"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/update_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/update_title"
-        android:textColor="#282828"
-        android:layout_marginBottom="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:rowCount="2"
-        android:columnCount="2">
-
-        <TextView
-            android:layout_column="0"
-            android:layout_row="0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:text="@string/update_time" />
-        <TextView
-            android:layout_row="0"
-            android:layout_column="1"
-            android:id="@+id/update_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:text="" />
-        <TextView
-            android:layout_row="1"
-            android:layout_column="0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:text="@string/update_commit" />
-        <TextView
-            android:layout_row="1"
-            android:layout_column="1"
-            android:id="@+id/update_commit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:textSize="16sp"
-            android:text="" />
-    </GridLayout>
-
     <ScrollView
+        android:id="@+id/update_scroll"
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border_gray"
-        android:layout_height="350dp">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scrollbarStyle="insideOverlay">
 
-        <TextView
-            android:id="@+id/update_content"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:lineSpacingMultiplier="1.2"
-            android:textColor="#282828"
-            android:textSize="15sp" />
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="144dp">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/update_elysia_banner"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/update_banner_text_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.64" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="22dp"
+                    android:paddingEnd="10dp"
+                    android:paddingVertical="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/update_banner_text_end"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/update_stars_emblem"
+                            android:layout_width="48dp"
+                            android:layout_height="43dp"
+                            android:importantForAccessibility="no"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/update_stars_signet"
+                            android:tint="@color/update_signet_ink"
+                            android:tintMode="src_in" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/update_stars_signet"
+                            android:textColor="@color/update_signet_ink"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:accessibilityHeading="true"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/update_title"
+                        android:textColor="@color/update_ink"
+                        android:textSize="27sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/update_tag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/update_signet_ink"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/update_release_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="22dp"
+                android:paddingVertical="16dp">
+
+                <TextView
+                    android:id="@+id/update_release_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:accessibilityHeading="true"
+                    android:textColor="@color/update_ink"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/update_metadata"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/update_time_group"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingEnd="12dp">
+
+                        <TextView
+                            style="@style/UpdateMetadataLabel"
+                            android:labelFor="@id/update_time"
+                            android:text="@string/update_time" />
+
+                        <TextView
+                            android:id="@+id/update_time"
+                            style="@style/UpdateMetadataValue" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/update_commit_group"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/UpdateMetadataLabel"
+                            android:labelFor="@id/update_commit"
+                            android:text="@string/update_commit" />
+
+                        <TextView
+                            android:id="@+id/update_commit"
+                            style="@style/UpdateMetadataValue" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/update_release_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="22dp"
+                android:background="@color/update_divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="22dp"
+                android:paddingVertical="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:accessibilityHeading="true"
+                    android:text="@string/update_notes"
+                    android:textColor="@color/update_ink"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/update_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/update_body_ink"
+                    android:textColorLink="@color/colorPrimary"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/update_divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="12dp">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/update_ignore"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="@string/update_ignore"/>
+            style="@style/UpdateDialogButton"
+            android:layout_weight="1"
+            android:background="@drawable/update_dialog_secondary_action"
+            android:text="@string/update_ignore"
+            android:textColor="@color/update_ink" />
 
-        <Space
-            android:layout_width="60dp"
-            android:layout_height="match_parent"/>
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/update_agree"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="@string/update_download"/>
+            style="@style/UpdateDialogButton"
+            android:layout_marginStart="10dp"
+            android:layout_weight="2"
+            android:background="@drawable/map_primary_action"
+            android:text="@string/update_download"
+            android:textColor="@color/ui_on_primary"
+            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

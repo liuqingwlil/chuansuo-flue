@@ -12,6 +12,10 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.InsetDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -29,6 +33,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -81,6 +87,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -1403,17 +1413,80 @@ public class MainActivity extends BaseActivity implements SensorEventListener {
 
     private void showUpdateDialog(JSONObject release, String tag, String downloadUrl) {
         View content = getLayoutInflater().inflate(R.layout.update, null);
-        ((TextView) content.findViewById(R.id.update_title)).setText(release.optString("name", tag));
-        ((TextView) content.findViewById(R.id.update_time)).setText(release.optString("published_at"));
-        ((TextView) content.findViewById(R.id.update_commit)).setText(release.optString("target_commitish"));
-        Markwon.create(this).setMarkdown(content.findViewById(R.id.update_content), release.optString("body"));
+        float density = getResources().getDisplayMetrics().density;
+        ((TextView) content.findViewById(R.id.update_tag)).setText(tag);
+
+        String name = updateField(release, "name").trim();
+        TextView releaseName = content.findViewById(R.id.update_release_name);
+        boolean showName = !name.isEmpty() && !name.equals(tag);
+        releaseName.setText(name);
+        releaseName.setVisibility(showName ? View.VISIBLE : View.GONE);
+
+        String time = formatUpdateTime(updateField(release, "published_at").trim());
+        String commit = updateField(release, "target_commitish").trim();
+        ((TextView) content.findViewById(R.id.update_time)).setText(time);
+        ((TextView) content.findViewById(R.id.update_commit)).setText(commit);
+        content.findViewById(R.id.update_time_group).setVisibility(time.isEmpty() ? View.GONE : View.VISIBLE);
+        content.findViewById(R.id.update_commit_group).setVisibility(commit.isEmpty() ? View.GONE : View.VISIBLE);
+        boolean hasMetadata = !time.isEmpty() || !commit.isEmpty();
+        View metadata = content.findViewById(R.id.update_metadata);
+        metadata.setVisibility(hasMetadata ? View.VISIBLE : View.GONE);
+        if (showName && hasMetadata) {
+            ViewGroup.MarginLayoutParams margins = (ViewGroup.MarginLayoutParams) metadata.getLayoutParams();
+            margins.topMargin = Math.round(10 * density);
+            metadata.setLayoutParams(margins);
+        }
+        int detailsVisibility = showName || hasMetadata ? View.VISIBLE : View.GONE;
+        content.findViewById(R.id.update_release_details).setVisibility(detailsVisibility);
+        content.findViewById(R.id.update_release_divider).setVisibility(detailsVisibility);
+
+        TextView notes = content.findViewById(R.id.update_content);
+        String body = updateField(release, "body");
+        if (body.trim().isEmpty()) {
+            notes.setText(R.string.update_notes_empty);
+        } else {
+            Markwon.create(this).setMarkdown(notes, body);
+        }
 
         AlertDialog dialog = new AlertDialog.Builder(this).setView(content).create();
-        content.findViewById(R.id.update_ignore).setOnClickListener(v -> dialog.dismiss());
-        content.findViewById(R.id.update_agree).setOnClickListener(v -> {
+        Button ignore = content.findViewById(R.id.update_ignore);
+        Button download = content.findViewById(R.id.update_agree);
+        View.OnFocusChangeListener underlineFocus = (view, focused) -> {
+            Button button = (Button) view;
+            int flags = button.getPaintFlags();
+            button.setPaintFlags(focused ? flags | Paint.UNDERLINE_TEXT_FLAG : flags & ~Paint.UNDERLINE_TEXT_FLAG);
+        };
+        ignore.setOnFocusChangeListener(underlineFocus);
+        download.setOnFocusChangeListener(underlineFocus);
+        ignore.setOnClickListener(v -> dialog.dismiss());
+        download.setOnClickListener(v -> {
             dialog.dismiss();
             openProjectUrl(downloadUrl);
         });
         dialog.show();
+
+        Window window = dialog.getWindow();
+        if (window != null) {
+            int screenWidth = getResources().getConfiguration().screenWidthDp;
+            int verticalInset = Math.round(12 * density);
+            window.setBackgroundDrawable(new InsetDrawable(new ColorDrawable(Color.TRANSPARENT),
+                    0, verticalInset, 0, verticalInset));
+            window.setLayout(Math.round(Math.min(screenWidth - 32, 440) * density),
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+        }
+    }
+
+    private static String updateField(JSONObject release, String field) {
+        return release.isNull(field) ? "" : release.optString(field);
+    }
+
+    private static String formatUpdateTime(String time) {
+        if (time.isEmpty()) return time;
+        try {
+            return Instant.parse(time).atZone(ZoneId.systemDefault())
+                    .format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
+        } catch (DateTimeParseException e) {
+            return time;
+        }
     }
 }

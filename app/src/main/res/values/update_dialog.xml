@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="update_surface">#FFFBFD</color>
+    <color name="update_ink">#30243D</color>
+    <color name="update_body_ink">#493C50</color>
+    <color name="update_signet_ink">#704366</color>
+    <color name="update_divider">#EDE2EA</color>
+    <color name="update_action_surface">#F7EFF5</color>
+
+    <style name="UpdateMetadataLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/update_signet_ink</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="UpdateMetadataValue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/update_ink</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="UpdateDialogButton" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:paddingHorizontal">8dp</item>
+        <item name="android:paddingVertical">8dp</item>
+        <item name="android:defaultFocusHighlightEnabled">false</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>
